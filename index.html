@@ -417,6 +417,18 @@ footer {
     <a href="mailto:CLKdigitalstudioLLC@gmx.com" class="contact-email">
       ✉ &nbsp; CLKdigitalstudioLLC@gmx.com
     </a>
+    <div style="margin-top:14px">
+      <button onclick="copyEmail()" id="copy-btn" style="
+        font-family:'Rajdhani',sans-serif; font-size:12px; font-weight:600;
+        letter-spacing:2px; text-transform:uppercase;
+        background:transparent; border:1px solid rgba(26,111,255,0.25);
+        color:var(--steel); padding:8px 20px; cursor:pointer;
+        border-radius:2px; transition:all .2s;
+      " onmouseover="this.style.borderColor='var(--blue2)';this.style.color='var(--white)'"
+         onmouseout="this.style.borderColor='rgba(26,111,255,0.25)';this.style.color='var(--steel)'">
+        📋 &nbsp; Copy Email Address
+      </button>
+    </div>
   </div>
 </section>
 
@@ -432,6 +444,19 @@ footer {
 </div>
 
 <script>
+function copyEmail() {
+  navigator.clipboard.writeText('CLKdigitalstudioLLC@gmx.com').then(function() {
+    var btn = document.getElementById('copy-btn');
+    btn.innerHTML = '✓ &nbsp; Copied!';
+    btn.style.color = '#00c864';
+    btn.style.borderColor = 'rgba(0,200,100,0.4)';
+    setTimeout(function() {
+      btn.innerHTML = '📋 &nbsp; Copy Email Address';
+      btn.style.color = 'var(--steel)';
+      btn.style.borderColor = 'rgba(26,111,255,0.25)';
+    }, 2500);
+  });
+}
 function openLogo() {
   document.getElementById('lightbox').classList.add('active');
   document.body.style.overflow = 'hidden';
